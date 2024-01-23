@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 function Login() {
-  const { putUserData, UserData } = useUser()
+  const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -59,7 +59,6 @@ function Login() {
         toast.error('Ocorreu um erro ao processar a solicitação')
       }
     }
-    console.log(UserData)
   }
 
   return (
