@@ -15,6 +15,7 @@ export const UserProvider = ({ children }) => {
 }
 
 export const useUser = () => {
+  // use + o contexto que é User
   const context = useContext(UserContext)
 
   if (!context) {

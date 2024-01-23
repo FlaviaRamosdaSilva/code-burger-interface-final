@@ -42,18 +42,24 @@ function Login() {
   })
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
-      apiCodeBurger.post('sessions', {
+    try {
+      const response = await apiCodeBurger.post('sessions', {
         email: clientData.email,
         password: clientData.password
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Seja Bem-vindo',
-        error: 'Verifique seu e-mail e senha'
+      })
+      // Lógica de sucesso
+      toast.success('Seja Bem-vindo')
+      console.log(response)
+    } catch (error) {
+      console.error('Erro na requisição:', error)
+      if (error.response && error.response.status === 401) {
+        // Exibir mensagem específica para erro 401
+        toast.error('Verifique seu e-mail e senha')
+      } else {
+        // Exibir mensagem genérica para outros erros
+        toast.error('Ocorreu um erro ao processar a solicitação')
       }
-    )
-    console.log(response)
+    }
   }
 
   return (

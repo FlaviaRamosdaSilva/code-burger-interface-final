@@ -56,8 +56,7 @@ function Register() {
         toast.success('Cadastro realizado com sucesso', {
           theme: 'colored'
         })
-      }
-      if (status === 409) {
+      } else if (status === 409) {
         toast.error('E-mail já cadastrada, faça o Login para continuar', {
           theme: 'colored'
         })
