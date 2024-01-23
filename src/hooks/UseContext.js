@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 // criar contexto e usar contexto, conforme documentação do Context
 
 const UserContext = createContext({})
@@ -7,10 +7,16 @@ const UserContext = createContext({})
 
 export const UserProvider = ({ children }) => {
   // colocamos aqui dentro as informações que vamos precisar para usar em todas as páginas
-  const user = { name: 'Rodolfo', age: 18 }
+  const [UserData, setUserData] = useState({})
 
+  const putUserData = UserInfo => {
+    // responsável por pegar meus dados e colocar dentro do Estado
+    setUserData(UserInfo)
+  }
   return (
-    <UserContext.Provider value={{ user }}> {children} </UserContext.Provider>
+    <UserContext.Provider value={{ putUserData, UserData }}>
+      {children}
+    </UserContext.Provider>
   )
 }
 

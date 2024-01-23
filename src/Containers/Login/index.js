@@ -20,9 +20,7 @@ import {
 } from './styles'
 
 function Login() {
-  const users = useUser()
-
-  console.log(users)
+  const { putUserData, UserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -43,13 +41,14 @@ function Login() {
 
   const onSubmit = async clientData => {
     try {
-      const response = await apiCodeBurger.post('sessions', {
+      const { data } = await apiCodeBurger.post('sessions', {
         email: clientData.email,
         password: clientData.password
       })
+      putUserData(data)
+
       // Lógica de sucesso
       toast.success('Seja Bem-vindo')
-      console.log(response)
     } catch (error) {
       console.error('Erro na requisição:', error)
       if (error.response && error.response.status === 401) {
@@ -60,6 +59,7 @@ function Login() {
         toast.error('Ocorreu um erro ao processar a solicitação')
       }
     }
+    console.log(UserData)
   }
 
   return (
