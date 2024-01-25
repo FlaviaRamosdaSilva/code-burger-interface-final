@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
+import { Link } from 'react-router-dom'
 import LoginImg from '../../assets/login-img.svg'
 import Logo from '../../assets/logo.svg'
 import { ContainerButton } from '../../components/Button/styles'
@@ -91,7 +92,10 @@ function Login() {
           {/* ao clicar no button com type onsubmite ele vai para a função onsubmit do form e da variavel lá em cima e te dá as informações no console.log */}
         </form>
         <SignInLink>
-          Não possui conta ? <a>Sign Up</a>
+          Não possui conta?{' '}
+          <Link style={{ color: 'white' }} to="/cadastro">
+            Sign Up
+          </Link>
         </SignInLink>
       </ContainerItens>
     </Container>

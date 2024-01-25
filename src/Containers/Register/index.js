@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
-import Logo from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
 import RegisterImg from '../../assets/Register-img.svg'
+import Logo from '../../assets/logo.svg'
 import { ContainerButton } from '../../components/Button/styles'
 import apiCodeBurger from '../../services/api'
 import {
@@ -112,7 +113,10 @@ function Register() {
           {/* ao clicar no button com type onsubmite ele vai para a função onsubmit do form e da variavel lá em cima e te dá as informações no console.log */}
         </form>
         <SignInLink>
-          Já possui conta ? <a>Sign In</a>
+          Já possui conta?{' '}
+          <Link style={{ color: 'white' }} to="/login">
+            Sign In
+          </Link>
         </SignInLink>
       </ContainerItens>
     </Container>
