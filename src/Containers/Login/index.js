@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import LoginImg from '../../assets/login-img.svg'
 import Logo from '../../assets/logo.svg'
 import { ContainerButton } from '../../components/Button/styles'
@@ -22,6 +22,7 @@ import {
 
 function Login() {
   const { putUserData } = useUser()
+  const history = useHistory()
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -60,6 +61,10 @@ function Login() {
         toast.error('Ocorreu um erro ao processar a solicitação')
       }
     }
+    setTimeout(() => {
+      history.push('/')
+    }, 1000)
+    // settimeout junto com o UseHystory fazem a página ser redirecionada para o HOME após ser efetuado o login (1segundo depois)
   }
 
   return (
