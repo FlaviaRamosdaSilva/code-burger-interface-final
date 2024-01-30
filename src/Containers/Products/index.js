@@ -27,7 +27,6 @@ export function Products() {
     async function loadProducts() {
       const { data } = await apiCodeBurger.get('products')
 
-      console.log(data)
       setProducts(data)
     }
     loadProducts()
