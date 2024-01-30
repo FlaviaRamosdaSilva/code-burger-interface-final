@@ -3,6 +3,7 @@ import Carousel from 'react-elastic-carousel'
 
 import OfferName from '../../assets/Offers-name.png'
 import apiCodeBurger from '../../services/api'
+import formatCurrency from '../../Utils/formatCurrency'
 import {
   Button,
   CategoryImg,
@@ -13,7 +14,7 @@ import {
   Price
 } from './styles'
 
-function OfferCarousel() {
+export function OfferCarousel() {
   const [offers, setOffers] = useState([])
 
   useEffect(() => {
@@ -48,7 +49,7 @@ function OfferCarousel() {
             <ContainerItens key={product.id}>
               <Image src={product.url} alt="foto do produto" />
               <Name>{product.name}</Name>
-              <Price>R$ {product.price}</Price>
+              <Price> {formatCurrency(product.price)}</Price>
               <Button>Peça agora</Button>
             </ContainerItens>
           ))}
@@ -56,5 +57,3 @@ function OfferCarousel() {
     </Container>
   )
 }
-
-export default OfferCarousel

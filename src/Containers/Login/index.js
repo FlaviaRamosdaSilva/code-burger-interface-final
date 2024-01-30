@@ -20,7 +20,7 @@ import {
   SignInLink
 } from './styles'
 
-function Login() {
+export function Login() {
   const { putUserData } = useUser()
   const history = useHistory()
 
@@ -106,5 +106,3 @@ function Login() {
     </Container>
   )
 }
-
-export default Login

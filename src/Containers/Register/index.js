@@ -19,7 +19,7 @@ import {
   SignInLink
 } from './styles'
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string()
@@ -122,5 +122,3 @@ function Register() {
     </Container>
   )
 }
-
-export default Register
