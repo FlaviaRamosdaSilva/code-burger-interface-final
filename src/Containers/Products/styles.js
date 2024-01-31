@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background: #efefef;
+  min-height: calc(100vh - 72px);
 `
 
 export const Productimg = styled.img`

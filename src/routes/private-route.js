@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
+import { Header } from '../components'
 // Private Route é para as páginas serem acessadas apenas com login, ou seja, com o localstorage configurado com os dados do usuário.
 
 function PrivateRoute({ component, ...rest }) {
@@ -9,7 +10,12 @@ function PrivateRoute({ component, ...rest }) {
   if (!user) {
     return <Redirect to="/login" />
   }
-  return <Route {...rest} component={component} />
+  return (
+    <>
+      <Header />
+      <Route {...rest} component={component} />
+    </>
+  )
 }
 
 export default PrivateRoute
