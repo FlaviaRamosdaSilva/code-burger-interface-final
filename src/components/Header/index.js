@@ -3,6 +3,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Cart from '../../assets/Cart-Header.png'
 import Person from '../../assets/User-Header.png'
+import { useUser } from '../../hooks/UseContext'
 import {
   Container,
   ContainerLeft,
@@ -14,6 +15,14 @@ import {
 } from './styles'
 
 export function Header() {
+  const { logout, UserData } = useUser()
+  console.log(UserData)
+
+  const logoutUser = () => {
+    logout()
+    push('/login')
+  }
+
   const {
     push, // desestruturamos o history pra ficar só com o push dai lá embaixo substituímos o history.push por apenas push
     location: { pathname }
@@ -42,8 +51,10 @@ export function Header() {
           <img src={Person} alt="usuário" />
         </PageLink>
         <ContainerText>
-          <p>Olá Flávia </p>
-          <PageLinkExit>Sair</PageLinkExit>
+          <p>Olá {UserData.name} </p>
+          <PageLinkExit onClick={logoutUser} to="/login">
+            Sair
+          </PageLinkExit>
         </ContainerText>
       </ContainerRight>
     </Container>

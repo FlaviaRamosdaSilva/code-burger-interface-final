@@ -89,12 +89,12 @@ export function Login() {
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
           <ContainerButton
-            type="submit"
+            type="onSubmit"
             style={{ marginTop: 75, marginBottom: 25 }}
           >
             Sign In
           </ContainerButton>
-          {/* ao clicar no button com type onsubmite ele vai para a função onsubmit do form e da variavel lá em cima e te dá as informações no console.log */}
+          {/* ao clicar no button com type onsubmit ele vai para a função onsubmit do form e da variavel lá em cima e te dá as informações no console.log */}
         </form>
         <SignInLink>
           Não possui conta?{' '}

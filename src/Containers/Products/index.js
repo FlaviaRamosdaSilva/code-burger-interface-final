@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import PropTypes from 'prop-types'
 import LogoProducts from '../../assets/Logo-home-2.svg'
 import { CardProducts } from '../../components/CardProducts'
 import apiCodeBurger from '../../services/api'
@@ -11,9 +12,15 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Products() {
+export function Products({ location: { state } }) {
+  let categoryId = 0
+  if (state?.categoryId) {
+    // utilizado o ponto de interrogação como um ElVES OPERATOR = operador que verifica se a infomação existe, se não existir ele segue a vida
+    categoryId = state.categoryId // ElVES OPERATOR = se não existir o state, ele segue o fluxo e não quebra a aplicação
+  }
+
   const [categories, setCategories] = useState([])
-  const [activeCategory, setActiveCategory] = useState(0)
+  const [activeCategory, setActiveCategory] = useState(categoryId)
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
 
@@ -70,4 +77,8 @@ export function Products() {
       </ProductsContainer>
     </Container>
   )
+}
+
+Products.propTypes = {
+  location: PropTypes.object
 }
