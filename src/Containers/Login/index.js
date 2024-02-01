@@ -48,9 +48,17 @@ export function Login() {
         password: clientData.password
       })
       putUserData(data)
-
       // Lógica de sucesso
       toast.success('Seja Bem-vindo')
+
+      setTimeout(() => {
+        if (data.admin) {
+          history.push('/pedidos')
+        } else {
+          history.push('/')
+        }
+      }, 1000)
+      // settimeout junto com o UseHystory fazem a página ser redirecionada para o HOME após ser efetuado o login (1segundo depois)
     } catch (error) {
       console.error('Erro na requisição:', error)
       if (error.response && error.response.status === 401) {
@@ -61,10 +69,6 @@ export function Login() {
         toast.error('Ocorreu um erro ao processar a solicitação')
       }
     }
-    setTimeout(() => {
-      history.push('/')
-    }, 1000)
-    // settimeout junto com o UseHystory fazem a página ser redirecionada para o HOME após ser efetuado o login (1segundo depois)
   }
 
   return (
