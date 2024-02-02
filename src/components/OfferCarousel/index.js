@@ -26,7 +26,6 @@ export function OfferCarousel() {
       const { data } = await apiCodeBurger.get('products')
 
       const onlyOffer = data.filter(product => product.offer)
-      console.log(onlyOffer)
       setOffers(onlyOffer)
     }
     loadOffer()

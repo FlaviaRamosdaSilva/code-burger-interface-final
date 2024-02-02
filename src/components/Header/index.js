@@ -16,7 +16,6 @@ import {
 
 export function Header() {
   const { logout, UserData } = useUser()
-  console.log(UserData)
 
   const logoutUser = () => {
     logout()

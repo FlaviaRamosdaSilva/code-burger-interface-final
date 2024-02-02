@@ -11,7 +11,6 @@ export function CategoryCarousel() {
   useEffect(() => {
     async function loadCategories() {
       const { data } = await apiCodeBurger.get('categories')
-      console.log(data)
       setCategories(data)
     }
     loadCategories()

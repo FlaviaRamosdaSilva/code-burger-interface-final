@@ -5,7 +5,7 @@ import { Container } from './styles'
 export function Admin() {
   return (
     <Container>
-      <h1>Admin</h1>
+      <h1> </h1>
       <Orders />
     </Container>
   )

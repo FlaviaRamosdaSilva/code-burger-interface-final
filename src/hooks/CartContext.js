@@ -73,7 +73,6 @@ export const CartProvider = ({ children }) => {
 
       await updateLocalStorage(newCart)
     } else {
-      console.log(productId)
       deleteProducts(productId)
     }
   }
