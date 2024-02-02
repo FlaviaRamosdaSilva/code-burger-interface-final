@@ -15,14 +15,19 @@ import apiCodeBurger from '../../../services/api.js'
 import status from './orders-status.js'
 import { ProductsImg, ReactSelectStyle } from './styles.js'
 
-function Row({ row }) {
+function Row({ row, setOrders, orders }) {
   const [open, setOpen] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
 
   async function setNewStatus(id, status) {
     setIsLoading(true)
     try {
-      await apiCodeBurger.put(`orders/${id}`, { status })
+      await apiCodeBurger.put(`orders/${id}`, { status }) // aqui altera na API
+      const newOrders = orders.map(order => {
+        // aqui altera localmente
+        return order._id === id ? { ...order, status } : order
+      })
+      setOrders(newOrders)
     } catch (err) {
       console.error(err)
     } finally {
@@ -49,7 +54,7 @@ function Row({ row }) {
         <TableCell>{row.date}</TableCell>
         <TableCell>
           <ReactSelectStyle
-            options={status}
+            options={status.filter(sts => sts.value !== 'Todos')}
             menuPortalTarget={document.body}
             placeholder="Status"
             defaultValue={
@@ -105,6 +110,8 @@ function Row({ row }) {
 }
 
 Row.propTypes = {
+  orders: PropTypes.array,
+  setOrders: PropTypes.func,
   row: PropTypes.shape({
     name: PropTypes.string.isRequired,
     orderId: PropTypes.string.isRequired,
