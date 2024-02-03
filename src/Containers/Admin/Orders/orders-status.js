@@ -6,13 +6,13 @@ const status = [
   },
   {
     id: 2,
-    label: 'pedido realizado',
-    value: 'pedido realizado'
+    label: 'Pedido realizado',
+    value: 'Pedido realizado'
   },
   {
     id: 3,
-    label: 'pedido em andamento',
-    value: 'pedido em andamento'
+    label: 'Pedido em preparação',
+    value: 'Pedido em preparação'
   },
   {
     id: 4,
