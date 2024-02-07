@@ -7,13 +7,13 @@ import * as Yup from 'yup'
 import { Link, useHistory } from 'react-router-dom'
 import LoginImg from '../../assets/login-img.svg'
 import Logo from '../../assets/logo.svg'
+import { ErrorMessage } from '../../components'
 import { ContainerButton } from '../../components/Button/styles'
 import { useUser } from '../../hooks/UseContext'
 import apiCodeBurger from '../../services/api'
 import {
   Container,
   ContainerItens,
-  ErrorMessage,
   Input,
   Label,
   LoginImage,

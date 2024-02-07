@@ -72,12 +72,3 @@ export const SignInLink = styled.p`
     text-decoration: underline;
   }
 `
-
-export const ErrorMessage = styled.p`
-  color: #cc1717;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: 2px;
-`

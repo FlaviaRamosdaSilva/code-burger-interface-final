@@ -7,12 +7,12 @@ import * as Yup from 'yup'
 import { Link } from 'react-router-dom'
 import RegisterImg from '../../assets/Register-img.svg'
 import Logo from '../../assets/logo.svg'
+import { ErrorMessage } from '../../components'
 import { ContainerButton } from '../../components/Button/styles'
 import apiCodeBurger from '../../services/api'
 import {
   Container,
   ContainerItens,
-  ErrorMessage,
   Input,
   Label,
   RegisterImage,
