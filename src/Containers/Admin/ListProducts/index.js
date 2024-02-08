@@ -10,12 +10,15 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
+import { useHistory } from 'react-router-dom'
+import paths from '../../../Constants/paths'
 import formatCurrency from '../../../Utils/formatCurrency'
 import apiCodeBurger from '../../../services/api'
 import { Container, EditIconStyles, Img } from './styles'
 
 function ListProducts() {
   const [products, setProducts] = useState([])
+  const { push } = useHistory()
 
   useEffect(() => {
     async function loadProducts() {
@@ -31,6 +34,11 @@ function ListProducts() {
     }
     return <CancelIcon style={{ color: '#cc1717' }} />
   }
+
+  function editProduct(product) {
+    push(paths.EditProduct, product)
+  }
+  // quando eu clico no lápis de editar, chama essa função enviando os dados do produto;  nessa função nós redirecionamos para a página '/editar-produtos' e enviamos as informações do produto
 
   return (
     <Container>
@@ -61,7 +69,7 @@ function ListProducts() {
                     <Img src={product.url} alt="imagem do produto" />
                   </TableCell>
                   <TableCell>
-                    <EditIconStyles />
+                    <EditIconStyles onClick={() => editProduct(product)} />
                   </TableCell>
                 </TableRow>
               ))}
