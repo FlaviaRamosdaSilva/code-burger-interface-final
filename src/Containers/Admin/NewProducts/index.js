@@ -5,15 +5,18 @@ import { Controller, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import { useHistory } from 'react-router-dom'
 import apiCodeBurger from '../../../services/api'
 
 import ReactSelect from 'react-select'
+import { toast } from 'react-toastify'
 import { ErrorMessage } from '../../../components'
 import { ButtonStyle, Container, Input, Label, LabelUpload } from './styles'
 
 function NewProducts() {
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
+  const { push } = useHistory()
 
   const schema = Yup.object().shape({
     name: Yup.string().required('Digite o nome do Produto'),
@@ -37,7 +40,24 @@ function NewProducts() {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async data => {
+    // usamos o FormData para colocar os produtos por que no insomnia não é no body que colocamos as infos, então aqui não dá só pra enviar normal, até por que tem o FILE(imagem)
+    const productDataFormData = new FormData()
+    productDataFormData.append('name', data.name)
+    productDataFormData.append('price', data.price)
+    productDataFormData.append('category_id', data.category.id)
+    productDataFormData.append('file', data.file[0])
+
+    await toast.promise(apiCodeBurger.post('products', productDataFormData), {
+      pending: 'Criando novo produto',
+      success: 'Produto criado com sucesso',
+      error: 'Falha ao cadastrar o produto'
+    })
+    // chamamos a api no post já com os dados formatados do jeito correto
+    setTimeout(() => {
+      push('listar-produtos')
+    }, 2000)
+  }
 
   useEffect(() => {
     async function loadCategories() {
