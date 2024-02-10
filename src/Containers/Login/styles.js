@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Background from '../../assets/background.svg'
+import Background from '../../assets/Background-sushi-login.png'
 
 export const Container = styled.div`
   height: 100vh;
@@ -17,7 +17,7 @@ export const LoginImage = styled.img`
 
 export const ContainerItens = styled.div`
   border-radius: 0 10px 10px 0;
-  background: #373737;
+  background: #000000;
   height: 80%;
   padding: 25px 75px;
   display: flex;

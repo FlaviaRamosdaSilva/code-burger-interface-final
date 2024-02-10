@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
 
-import CategoryName from '../../assets/CategoryName.png'
+import CategoryName from '../../assets/CategoryName2.png'
 import apiCodeBurger from '../../services/api'
 import { Button, CategoryImg, Container, ContainerItens, Image } from './styles'
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import PropTypes from 'prop-types'
-import LogoProducts from '../../assets/Logo-home-2.svg'
+import LogoProducts from '../../assets/Produtos-Codesushi.png'
 import { CardProducts } from '../../components/CardProducts'
 import apiCodeBurger from '../../services/api'
 import {

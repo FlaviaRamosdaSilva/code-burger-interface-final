@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 
 import { useHistory } from 'react-router-dom'
 import formatCurrency from '../../Utils/formatCurrency'
-import OfferName from '../../assets/Offers-name.png'
+import OfferName from '../../assets/Offers-name2.png'
 import { useCart } from '../../hooks/CartContext'
 import apiCodeBurger from '../../services/api'
 import {

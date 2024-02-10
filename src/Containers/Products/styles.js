@@ -12,8 +12,8 @@ export const CategoryButton = styled.button`
   cursor: pointer;
   background: none;
   border: none;
-  color: ${props => (props.isActiveCategory ? '#9758a6' : '#9a9a9d')};
-  border-bottom: ${props => props.isActiveCategory && '2px solid #9758a6'};
+  color: ${props => (props.isActiveCategory ? '#ff6600' : '#9a9a9d')};
+  border-bottom: ${props => props.isActiveCategory && '2px solid #ff6600'};
   box-shadow: ${props =>
     props.isActiveCategory
       ? '0px 4px 4px 0px rgba(195, 63, 21, 0.10)'

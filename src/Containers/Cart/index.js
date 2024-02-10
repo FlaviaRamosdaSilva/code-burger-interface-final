@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CartLogo from '../../assets/cart-image.svg'
+import CartLogo from '../../assets/codesushi-cart.png'
 import { CartItems, CartResume } from '../../components'
 import { Cartimg, Container, Wrapper } from './styles'
 

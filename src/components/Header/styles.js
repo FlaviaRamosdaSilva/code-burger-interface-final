@@ -24,7 +24,7 @@ export const ContainerRight = styled.div`
 export const PageLink = styled.a`
   cursor: pointer;
   text-decoration: none;
-  color: ${props => (props.isActive ? '#9758a6' : '#555')};
+  color: ${props => (props.isActive ? '#ff6600' : '#555')};
   font-size: 16px;
   font-weight: ${props => (props.isActive ? 'bold' : 'normal')};
 `
@@ -47,7 +47,7 @@ export const Line = styled.div`
 
 export const PageLinkExit = styled.a`
   width: 25.3px;
-  color: #9758a6;
+  color: #ff6600;
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;

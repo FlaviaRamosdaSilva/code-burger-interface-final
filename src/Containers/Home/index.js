@@ -1,6 +1,6 @@
 import React from 'react'
 
-import HomeLogo from '../../assets/HomeLogo.svg'
+import HomeLogo from '../../assets/Home-CodeSushi.png'
 import { CategoryCarousel, OfferCarousel } from '../../components'
 import { Container, Homeimg } from './styles'
 
