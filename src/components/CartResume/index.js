@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import formatCurrency from '../../Utils/formatCurrency'
 import { useCart } from '../../hooks/CartContext'
+import { useUser } from '../../hooks/UseContext'
 import apiCodeBurger from '../../services/api'
 import { Button } from '../Button'
 import { Container } from './styles'
 
 export function CartResume() {
+  const { push } = useHistory()
   const { cartProducts } = useCart()
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
+  const { cleanCart } = useUser()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -28,6 +32,11 @@ export function CartResume() {
       success: 'Pedido Realizado',
       error: 'Falha ao realizar o seu pedido, tente novamente'
     })
+    cleanCart()
+    setTimeout(() => {
+      push('produtos')
+      window.location.reload(false)
+    }, 2000)
   }
 
   return (

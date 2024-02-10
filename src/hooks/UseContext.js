@@ -21,6 +21,10 @@ export const UserProvider = ({ children }) => {
     await localStorage.removeItem('codeburger:userData')
   }
 
+  const cleanCart = async () => {
+    await localStorage.removeItem('codeburger:cartInfo')
+  }
+
   useEffect(() => {
     const loadUserData = async () => {
       const clientInfo = await localStorage.getItem('codeburger:userData')
@@ -32,7 +36,7 @@ export const UserProvider = ({ children }) => {
   }, [])
 
   return (
-    <UserContext.Provider value={{ putUserData, UserData, logout }}>
+    <UserContext.Provider value={{ putUserData, UserData, logout, cleanCart }}>
       {children}
     </UserContext.Provider>
   )

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Logo from '../../assets/LOGO-CODE-SUSHI.png'
 import RegisterImg from '../../assets/Register-img2.png'
 import { ErrorMessage } from '../../components'
@@ -33,6 +33,7 @@ export function Register() {
       .oneOf([Yup.ref('password')], 'As senhas devem ser iguais')
   })
 
+  const { push } = useHistory()
   const {
     register,
     handleSubmit,
@@ -57,6 +58,9 @@ export function Register() {
         toast.success('Cadastro realizado com sucesso', {
           theme: 'colored'
         })
+        setTimeout(() => {
+          push('/')
+        }, 2000)
       } else if (status === 409) {
         toast.error('E-mail já cadastrada, faça o Login para continuar', {
           theme: 'colored'
