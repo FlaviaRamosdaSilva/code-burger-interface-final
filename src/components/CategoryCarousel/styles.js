@@ -33,7 +33,11 @@ export const Container = styled.div`
   }
 `
 
-export const CategoryImg = styled.img``
+export const CategoryImg = styled.img`
+  @media (max-width: 512px) {
+    width: 100vw;
+  }
+`
 
 export const ContainerItens = styled.div`
   display: flex;
