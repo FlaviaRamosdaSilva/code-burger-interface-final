@@ -2,7 +2,7 @@ import axios from 'axios'
 // conforme documentação do axios
 
 const apiCodeBurger = axios.create({
-  baseURL: 'sushi-api.up.railway.app/' // endereço do backend
+  baseURL: 'sushi-api.up.railway.app' // endereço do backend
 })
 
 apiCodeBurger.interceptors.request.use(async config => {
